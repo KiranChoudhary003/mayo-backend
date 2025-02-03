@@ -1,9 +1,9 @@
-import express from 'express';
-import { saveToken, sendNotification } from '../notifications/sendNotification.mjs';
+import express from 'express'
+import { saveToken, sendNotification } from '../notifications/sendNotification.mjs'
 
-const router = express.Router();
+const router = express.Router()
 
-router.post('/save-token', saveToken);
-router.post('/send-notification', sendNotification);
+router.post('/save-token', saveToken)
+router.post('/send-notification', sendNotification)
 
-export default router;
+export default router
