@@ -6,28 +6,7 @@ import notificationRoutes from './src/routes/notificationRoutes.mjs';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Define allowed origins (multiple URLs)
-const allowedOrigins = [
-  "https://my-app-two-dun-41.vercel.app",  // First frontend URL
-  "https://push-notification-murex-three.vercel.app/"   // Second frontend URL
-];
-
-// Use CORS with dynamic origin checking
-app.use(cors({
-  origin: function(origin, callback) {
-    if (allowedOrigins.includes(origin)) {
-      // If the origin is in the allowed list, allow the request
-      callback(null, true);
-    } else {
-      // Reject the request if the origin is not in the allowed list
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: "GET,POST",
-  allowedHeaders: "Content-Type, Authorization"
-}));
-
-
+app.use(cors({ origin: "*" })); 
 app.use(express.json());
 
 initializeFirebase();
